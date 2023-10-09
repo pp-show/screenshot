@@ -1,0 +1,56 @@
+{
+  "name": "截图工具",
+  "description": "巡检工作台截图工具",
+  "version": "2.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "16.png",
+      "48": "48.png",
+      "128": "128.png"
+    }
+  },
+  "icons": {
+    "16": "16.png",
+    "48": "48.png",
+    "128": "128.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "commands": {
+    "screenshot": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+P",
+        "mac": "MacCtrl+Shift+P"
+      },
+      "description": "截图"
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "<all_urls>",
+    "scripting",
+    "contextMenus",
+    "nativeMessaging",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "optional_host_permissions": [
+    "https://*/*"
+  ]
+}

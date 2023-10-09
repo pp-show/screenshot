@@ -1,0 +1,1 @@
+chrome.runtime.onInstalled.addListener((e=>{"install"===e.reason?console.log("chrome插件安装成功"):"update"===e.reason&&console.log("chrome插件更新成功")}));
